@@ -19,6 +19,9 @@ def main
 
   p list2
   puts list2
+
+  puts list.size
+  puts list2.size
 end
 
 main

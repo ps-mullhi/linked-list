@@ -27,6 +27,22 @@ class LinkedList
     end
   end
 
+  def size
+    if @list.nil?
+      return 0
+    end
+
+    count = 1
+
+    current_node = @list
+    until current_node.next_node.nil?
+      count += 1
+      current_node = current_node.next_node
+    end
+
+    count
+  end
+
   def to_s
     if @list.nil?
       return 'nil'
