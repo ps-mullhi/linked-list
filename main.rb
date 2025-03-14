@@ -14,7 +14,7 @@ def main
   list2 = LinkedList.new
 
   puts list2.head
-  
+
   list2.prepend(20)
   list2.prepend(15)
   list2.prepend(10)
@@ -30,6 +30,19 @@ def main
   puts list.tail.value
   puts list2.tail.value
 
+  p list.at(3)
+
+  puts list2.contains?(20)
+  list2.pop
+  puts list2.contains?(20)
+  puts list2
+  list2.pop
+  puts list2
+  puts list2.contains?(10)
+  list2.pop
+  puts list2
+  list2.pop
+  puts list2
 end
 
 main

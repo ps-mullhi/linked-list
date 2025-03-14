@@ -59,6 +59,56 @@ class LinkedList
     current_node
   end
 
+  def at(index)
+    if @list.nil?
+      return nil
+    end
+
+    i = 0
+    current_node = @list
+    until current_node.next_node.nil? || i == index
+      current_node = current_node.next_node
+      i += 1
+    end
+
+    if i < index
+      nil
+    else
+      current_node
+    end
+  end
+
+  def pop
+    unless @list.nil?
+      if @list.next_node.nil?
+        @list = nil
+      else
+        prev_node = @list
+        current_node = @list
+        until current_node.next_node.nil?
+          prev_node = current_node
+          current_node = current_node.next_node
+        end
+        prev_node.next_node = nil
+      end
+    end
+  end
+
+  def contains?(value)
+    if @list.nil?
+      return false
+    else
+      found = false
+      current_node = @list
+      found = true if current_node.value == value
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
+        found = true if current_node.value == value
+      end
+      found
+    end
+  end
+
   def to_s
     if @list.nil?
       return 'nil'
