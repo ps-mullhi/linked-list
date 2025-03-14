@@ -12,6 +12,8 @@ def main
   puts list
 
   list2 = LinkedList.new
+
+  puts list2.head
   
   list2.prepend(20)
   list2.prepend(15)
@@ -22,6 +24,12 @@ def main
 
   puts list.size
   puts list2.size
+
+  puts list.head.value
+  puts list2.head.value
+  puts list.tail.value
+  puts list2.tail.value
+
 end
 
 main
