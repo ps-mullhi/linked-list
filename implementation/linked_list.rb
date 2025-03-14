@@ -109,6 +109,23 @@ class LinkedList
     end
   end
 
+  def find(value)
+    if @list.nil?
+      return -1
+    else
+      index = 0
+      current_node = @list
+      return index if current_node.value == value
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
+        index += 1
+        return index if current_node.value == value
+      end
+
+      -1
+    end
+  end
+
   def to_s
     if @list.nil?
       return 'nil'
