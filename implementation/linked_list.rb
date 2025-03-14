@@ -126,6 +126,55 @@ class LinkedList
     end
   end
 
+  def insert_at(value, index)
+    if @list.nil?
+      add_to_empty_list(value)
+      return 
+    end
+
+
+    if index == 0
+      prepend(value)
+      return
+    elsif self.size <= index
+      append(value)
+      return
+    end
+
+    i = 0
+    prev_node = @list
+    current_node = @list
+    until current_node.next_node.nil? || i == index
+      prev_node = current_node
+      current_node = current_node.next_node
+      i += 1
+    end
+
+    new_node = Node.new(value, current_node)
+    prev_node.next_node = new_node
+  end
+
+  def remove_at(index)
+    unless @list.nil?
+      if index == 0
+        @list = @list.next_node
+      elsif self.size <= index + 1    
+        self.pop
+      else
+        i = 0
+        prev_node = @list
+        current_node = @list
+        until current_node.next_node.nil? || i == index
+          prev_node = current_node
+          current_node = current_node.next_node
+          i += 1
+        end
+
+        prev_node.next_node = current_node.next_node
+      end
+    end
+  end
+
   def to_s
     if @list.nil?
       return 'nil'

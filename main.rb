@@ -44,8 +44,16 @@ def main
   puts list2.contains?(10)
   list2.pop
   puts list2
-  list2.pop
+  list2.insert_at(20, 0)
   puts list2
+
+
+  puts list
+  list.insert_at(20, 0)
+  puts list
+
+  list.remove_at(5)
+  puts list
 end
 
 main
